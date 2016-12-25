@@ -1,5 +1,3 @@
-#version 120
-
 #define boneWeight0Flag
 #define boneWeight1Flag
 #define boneWeight2Flag
@@ -43,6 +41,7 @@ varying vec3 v_normal;
 #endif //normalFlag
 
 //my stuff
+//uniform float myfloat;
 uniform float u_cameraFar;
 uniform vec3 u_lightPosition;
 
@@ -188,13 +187,12 @@ void main() {
     float rad = 1.0/p.z;//g_sample_rad/p.z;
     vec4 finalColor;
     //vec3 float a[5] = float[](3.4, 4.2, 5.0, 5.2, 1.1);
-    vec2 MyArray[4] =vec2[](
-				  vec2(1,0),
-				  vec2(-1,0),
-				  vec2(0,1),
-				  vec2(0,-1));
-
-    int iterations = 4;
+    vec2 MyArray[4];
+    MyArray[0] = vec2(1,0);
+    MyArray[1] = vec2(-1,0);
+    MyArray[2] = vec2(0,1);
+    MyArray[3] = vec2(0,-1);
+    const int iterations = 4;
     for (int j = 0; j < iterations; ++j)
     	{
 	    //vec2 coord1 = reflect(vec2(j,j),rand)*rad;

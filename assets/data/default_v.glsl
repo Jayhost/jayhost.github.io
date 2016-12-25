@@ -20,6 +20,17 @@
 #define emissiveColorFlag
 #define shininessFlag
 
+#ifdef GL_ES
+#define LOWP lowp
+#define MED mediump
+#define HIGH highp
+precision mediump float;
+#else
+#define MED
+#define LOWP
+#define HIGH
+#endif
+
 //mystuff
 varying vec2 v_texCoords0;
 varying float v_intensity;
